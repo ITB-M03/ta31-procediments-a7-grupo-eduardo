@@ -2,14 +2,17 @@ package controllers.Ejercicio_5
 
 import utilities.iniciarScan
 import utilities.cerrarScan
-import java.awt.Menu
-import java.util.*
 import java.util.Scanner
 
 fun main() {
     val scan = iniciarScan()
-   menu2(scan)
+    menu2(scan)
     cerrarScan(scan)
+}
+
+fun array() : Array<Int>{
+    var resultat = Array<Int>(10) { -1 }
+    return resultat
 }
 
 fun menu(scan: Scanner): Int {
@@ -25,30 +28,46 @@ fun menu(scan: Scanner): Int {
     return resultat
 }
 
-fun push(scan: Scanner) {
-    print("introduzca bnumero")
-    var numero: Int = scan.nextInt()
-    print("prueba")
+fun push(scan: Scanner, array: Array<Int>) {
+    if (array[9] == -1){
+        println("Introduzca numero: ")
+        var numero: Int = scan.nextInt()
+        print("Numero añadido!")
+    }
+
 }
 
-fun pop(scan: Scanner){
-    var numero : Int = scan.nextInt()
-    print("prueba")
+fun pop(scan: Scanner) {
+    println("Introduzca su numero: ")
+    var numero: Int = scan.nextInt()
+    print("Numero eliminado!")
 }
-fun mostrar(){
+
+fun mostrar() {
     print("prueba")
 }
 
 fun menu2(scan: Scanner) {
-   var menu : Int = menu(scan)
-    while (menu !=4){
-       when (menu) {
-           1 -> { push(scan)  }
-           2 -> { pop(scan)  }
-           3-> { mostrar() }
-           else -> { println("Opcion invalida") }
-       }
+    var menu: Int = menu(scan)
+    while (menu != 4) {
+        when (menu) {
+            1 -> {
+                push(scan, array())
+            }
+
+            2 -> {
+                pop(scan)
+            }
+
+            3 -> {
+                mostrar()
+            }
+
+            else -> {
+                println("Opcion invalida")
+            }
+        }
         menu = menu(scan)
-   }
-    if(menu == 4) print("Adios")
+    }
+    if (menu == 4) print("Adiós!!")
 }
