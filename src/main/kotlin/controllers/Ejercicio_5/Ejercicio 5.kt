@@ -44,18 +44,28 @@ fun push(scan: Scanner, array: Array<Int>) {
     else println("La pila está llena, no se puede añadir ningún número")
 }
 
-fun pop(scan: Scanner) {
-
-    println("Introduzca su numero: ")
-    var numero: Int = scan.nextInt()
-    print("Numero eliminado!")
+fun pop(array: Array<Int>) {
+    if (array.first() != -1){
+        var primerNumero = false
+        for (i in 9 downTo 0){
+            if (array[i] != -1 && !primerNumero){
+                array[i] = -1
+                primerNumero = true
+            }
+        }
+        print("Numero eliminado!")
+    }
+    else println("La pila está vacia")
 }
 
 fun mostrar(array: Array<Int>) {
-    for (i in 0 until 10){
-        if (array[i] != -1) print("El contenido de la pila es: ${array[i]}")
-    }
-
+   if (array.first() == -1) println("La pila está vacia")
+   else {
+       print("El contenido de la pila es: ")
+       for (i in 0 until 10){
+           if (array[i] != -1) print("[${array[i]}]")
+       }
+   }
 }
 
 fun menu2(scan: Scanner) {
@@ -64,7 +74,7 @@ fun menu2(scan: Scanner) {
     while (menu !=4){
        when (menu) {
            1 -> push(scan, array)
-           2 -> pop(scan)
+           2 -> pop(array)
            3-> mostrar(array)
            else -> println("Opcion invalida")
        }
