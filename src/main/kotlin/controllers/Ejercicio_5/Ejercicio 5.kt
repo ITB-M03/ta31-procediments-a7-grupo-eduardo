@@ -6,7 +6,7 @@ import java.util.Scanner
 
 fun main() {
     val scan = iniciarScan()
-    menu2(scan)
+   menu2(scan)
     cerrarScan(scan)
 }
 
@@ -48,25 +48,14 @@ fun mostrar() {
 }
 
 fun menu2(scan: Scanner) {
-    var menu: Int = menu(scan)
-    while (menu != 4) {
-        when (menu) {
-            1 -> {
-                push(scan, array())
-            }
-
-            2 -> {
-                pop(scan)
-            }
-
-            3 -> {
-                mostrar()
-            }
-
-            else -> {
-                println("Opcion invalida")
-            }
-        }
+   var menu : Int = menu(scan)
+    while (menu !=4){
+       when (menu) {
+           1 -> push(scan, array())
+           2 -> pop(scan)
+           3-> mostrar()
+           else -> println("Opcion invalida")
+       }
         menu = menu(scan)
     }
     if (menu == 4) print("Adiós!!")
