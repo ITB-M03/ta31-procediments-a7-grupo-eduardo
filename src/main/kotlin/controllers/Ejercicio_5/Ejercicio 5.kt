@@ -2,14 +2,13 @@ package controllers.Ejercicio_5
 
 import utilities.iniciarScan
 import java.awt.Menu
+import java.util.*
 import java.util.Scanner
 
 fun main() {
     val scan = iniciarScan()
-    menu(scan)
-    menu2(menu, scan)
-
-
+   val menu = menu(scan)
+   menu2(menu,scan)
 }
 
 fun menu(scan: Scanner): Int {
@@ -26,19 +25,27 @@ fun menu(scan: Scanner): Int {
 }
 
 fun push(scan: Scanner) {
+    print("introduzca bnumero")
     var numero: Int = scan.nextInt()
+    print("prueba")
 }
 
+fun pop(scan: Scanner){
+    var numero : Int = scan.nextInt()
+    print("prueba")
+}
+fun mostrar(){
+    print("prueba")
+}
 
 fun menu2(menu: Int, scan: Scanner) {
-    when (menu) {
-        1 -> push(scan); menu(scan)
-        2 -> pop(); menu(scan)
-        3-> mostrar(); menu(scan)
-        4-> salir()
-        else -> {
-            println("Opcion invalida")
-            menu(eleccion)
-        }
-    }
+   while (menu !=4){
+       when (menu) {
+           1 -> { push(scan) ; menu(scan) }
+           2 -> { pop(scan) ; menu(scan) }
+           3-> { mostrar() ; menu(scan) }
+           else -> { println("Opcion invalida") ; menu(scan) }
+       }
+   }
+    if(menu == 4) print("Adios")
 }
