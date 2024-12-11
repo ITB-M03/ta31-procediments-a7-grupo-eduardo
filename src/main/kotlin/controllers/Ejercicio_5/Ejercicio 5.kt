@@ -1,6 +1,7 @@
 package controllers.Ejercicio_5
 
 import utilities.iniciarScan
+import utilities.cerrarScan
 import java.awt.Menu
 import java.util.*
 import java.util.Scanner
@@ -8,6 +9,7 @@ import java.util.Scanner
 fun main() {
     val scan = iniciarScan()
    menu2(scan)
+    cerrarScan(scan)
 }
 
 fun menu(scan: Scanner): Int {
