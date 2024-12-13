@@ -7,9 +7,8 @@ import java.util.*
 fun main() {
     val scan = iniciarScan()
     var preu = leerPrecio(scan)
-    var fecha = obtenerFecha(scan).split("-")
-    var anyo = fecha[2].toInt()
-    anyo= comprobarAnyoIva(anyo)
+    var fecha = obtenerFecha(scan)
+    var anyo= comprobarAnyoIva(fecha)
     var tipusIva = llegirTipusIVA(scan)
     var lista = llistaIva(scan)
     var precioFinal = calcularIva(preu,anyo,tipusIva,lista)
@@ -23,9 +22,9 @@ fun leerPrecio(scan: Scanner): Int {
     return resultat
 }
 
-fun obtenerFecha(scan: Scanner): String {
+fun obtenerFecha(scan: Scanner): List<String> {
     println("Introduzca la fecha:")
-    var resultat: String = scan.next()
+    var resultat: List<String> = scan.nextLine().split("-")
     scan.nextLine()
     return resultat
 }
@@ -54,14 +53,20 @@ fun llistaIva(scan: Scanner): MutableList<MutableList<Double>> {
     return resultat
 }
 
-fun comprobarAnyoIva(anyo: Int): Int {
-    var resultat: Int = 0
-    if (anyo >= 1986 && anyo < 1992) resultat = 0
-    else if (anyo >= 1992 && anyo < 1993) resultat = 1
-    else if (anyo >= 1993 && anyo < 1995) resultat = 2
-    else if (anyo >= 1995 && anyo < 2010) resultat = 3
-    else if (anyo >= 2010 && anyo < 2012) resultat = 4
-    else if (anyo >= 1992) resultat = 5
+fun comprobarAnyoIva(fecha : List<String>): Int {
+   var resultat = when(fecha[2].toInt()) {
+       in 1986..1991 -> 0
+       in 1992..1992 -> 1
+       in 1993..1994 -> 2
+       in 1995..2009 -> 3
+       in 2010..2011 -> 4
+       2012 -> when( fecha[1].toInt()) {
+           in 0..6 -> 4
+           7 -> if (fecha[0].toInt() <15) 4 else 5
+            else -> 5
+       }
+       else -> 5
+    }
     return resultat
 }
 
