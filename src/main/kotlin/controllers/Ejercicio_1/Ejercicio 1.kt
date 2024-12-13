@@ -62,10 +62,10 @@ fun comprobarIva(fecha : List<String>): Int {
        2012 -> when( fecha[1].toInt()) {
            in 0..6 -> 4
            7 -> if (fecha[0].toInt() <15) 4 else 5
-            else -> 5
+           else -> 5
        }
        else -> 5
-    }
+   }
     return resultat
 }
 
