@@ -8,7 +8,7 @@ fun main() {
     val scan = iniciarScan()
     var preu = leerPrecio(scan)
     var fecha = obtenerFecha(scan)
-    var anyo= comprobarAnyoIva(fecha)
+    var anyo= comprobarIva(fecha)
     var tipusIva = llegirTipusIVA(scan)
     var lista = llistaIva(scan)
     var precioFinal = calcularIva(preu,anyo,tipusIva,lista)
@@ -52,7 +52,7 @@ fun llistaIva(scan: Scanner): MutableList<MutableList<Double>> {
     return resultat
 }
 
-fun comprobarAnyoIva(fecha : List<String>): Int {
+fun comprobarIva(fecha : List<String>): Int {
    var resultat = when(fecha[2].toInt()) {
        in 1986..1991 -> 0
        in 1992..1992 -> 1
