@@ -25,7 +25,6 @@ fun leerPrecio(scan: Scanner): Int {
 fun obtenerFecha(scan: Scanner): List<String> {
     println("Introduzca la fecha:")
     var resultat: List<String> = scan.nextLine().split("-")
-    scan.nextLine()
     return resultat
 }
 
