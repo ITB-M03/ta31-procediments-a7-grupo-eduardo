@@ -15,6 +15,11 @@ fun main() {
     println(precioFinal)
 }
 
+/**
+ * @author Ivan Torres & Denis Coello
+ * @param scan
+ * @return precio
+ */
 fun leerPrecio(scan: Scanner): Int {
     println("Introduzca el precio:")
     var resultat: Int = scan.nextInt()
@@ -22,12 +27,21 @@ fun leerPrecio(scan: Scanner): Int {
     return resultat
 }
 
+/**
+ * @author Ivan Torres & Dennis Coello
+ * @param scan
+ * @return lista amb la data separada en dia, mes i any
+ */
 fun obtenerFecha(scan: Scanner): List<String> {
     println("Introduzca la fecha:")
     var resultat: List<String> = scan.nextLine().split("-")
     return resultat
 }
-
+/**
+ * @author Ivan Torres & Dennis Coello
+ * @param scan
+ * @return numero en que s'indica la posició en que es troba el iva corresponent a la llista
+ */
 fun llegirTipusIVA(scan: Scanner): Int {
     println("Introduzca el tipo de IVA:")
     var tipus: String = scan.nextLine()
@@ -38,7 +52,11 @@ fun llegirTipusIVA(scan: Scanner): Int {
     else if (tipus=="Exempt") resultat=3
     return resultat
 }
-
+/**
+ * @author Ivan Torres & Dennis Coello
+ * @param scan
+ * @return retorna una llista en que es troban el percentatge de cada tipus d'IVA
+ */
 fun llistaIva(scan: Scanner): MutableList<MutableList<Double>> {
     var resultat: MutableList<MutableList<Double>>
     resultat = mutableListOf(
@@ -51,7 +69,11 @@ fun llistaIva(scan: Scanner): MutableList<MutableList<Double>> {
     )
     return resultat
 }
-
+/**
+ * @author Ivan Torres & Dennis Coello
+ * @param fecha data introduida
+ * @return numero que representa la psoició del any correponents a la llista
+ */
 fun comprobarIva(fecha : List<String>): Int {
    var resultat = when(fecha[2].toInt()) {
        in 1986..1991 -> 0
@@ -68,7 +90,14 @@ fun comprobarIva(fecha : List<String>): Int {
    }
     return resultat
 }
-
+/**
+ * @author Ivan Torres & Dennis Coello
+ * @param preu
+ * @param anyo
+ * @param tipusIva
+ * @param lista
+ * @return preu multiplicat per l'IVA corresponent per a l'any indicat
+ */
 fun calcularIva(preu: Int, anyo:Int,tipusIva:Int, lista:MutableList<MutableList<Double>>) : Int{
     var resultat = 0
     resultat = preu+(preu * lista[anyo][tipusIva]).toInt()
