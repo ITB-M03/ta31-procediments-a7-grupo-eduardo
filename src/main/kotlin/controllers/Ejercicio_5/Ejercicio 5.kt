@@ -4,17 +4,31 @@ import utilities.iniciarScan
 import utilities.cerrarScan
 import java.util.Scanner
 
+/**
+ * ## Funcion principal
+ * @author Ivan Torres & Denis Coello
+ * @param scan iniciar escaner
+ */
 fun main() {
     val scan = iniciarScan()
    menu2(scan)
     cerrarScan(scan)
 }
-
+/**
+ * ## Funcion para iniciar el array
+ * @author Ivan Torres & Denis Coello
+ *@return array creat
+ */
 fun array() : Array<Int>{
     var resultat = Array<Int>(10) { -1 }
     return resultat
 }
-
+/**
+ * ## Funcion para mostrar el menu
+ * @author Ivan Torres & Denis Coello
+ * @param scan llamamos al escaner
+ *@return numero que indica la seleccion del menú
+ */
 fun menu(scan: Scanner): Int {
     var resultat: Int
     println(
@@ -27,7 +41,12 @@ fun menu(scan: Scanner): Int {
     resultat = scan.nextInt()
     return resultat
 }
-
+/**
+ * ## Funcion para hacer el push
+ * @author Ivan Torres & Denis Coello
+ * @param scan llamamos al escaner
+ * @param array array en que guardarem els numeros de la pila
+ */
 fun push(scan: Scanner, array: Array<Int>) {
     if (array.last() == -1){
         println("Introduzca numero: ")
@@ -43,7 +62,11 @@ fun push(scan: Scanner, array: Array<Int>) {
     }
     else println("La pila está llena, no se puede añadir ningún número")
 }
-
+/**
+ * ## Funcion para hacer el pop
+ * @author Ivan Torres & Denis Coello
+ * @param array en que estan los numeros de la pila
+ */
 fun pop(array: Array<Int>) {
     if (array.first() != -1){
         var primerNumero = false
@@ -57,7 +80,11 @@ fun pop(array: Array<Int>) {
     }
     else println("La pila está vacia")
 }
-
+/**
+ * ## Funcion para mostrar el array
+ * @author Ivan Torres & Denis Coello
+ * @param array array en que estan los numeros de la pila
+ */
 fun mostrar(array: Array<Int>) {
    if (array.first() == -1) println("La pila está vacia")
    else {
@@ -67,7 +94,11 @@ fun mostrar(array: Array<Int>) {
        }
    }
 }
-
+/**
+ * ## Funcion que analiza y redirije segun la eleccion del menu
+ * @author Ivan Torres & Denis Coello
+ * @param scan llamamos al escaner
+ */
 fun menu2(scan: Scanner) {
    var menu : Int = menu(scan)
     val array = array()

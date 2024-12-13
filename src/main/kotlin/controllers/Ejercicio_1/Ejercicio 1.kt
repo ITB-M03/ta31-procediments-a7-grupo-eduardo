@@ -4,6 +4,15 @@ import utilities.iniciarScan
 
 import java.util.*
 
+/**
+ * ## Funcion principal
+ * @author Ivan Torres & Denis Coello
+ * @param preu llamamos a leerPrecio
+ * @param fecha llamamos a obtenerFecha
+ * @param anyo llamamos a comprobar Iva
+ * @param lista llamamos a llistaIVA
+ * @param precioFinal llamamos a calcularIva
+ */
 fun main() {
     val scan = iniciarScan()
     var preu = leerPrecio(scan)
@@ -16,9 +25,10 @@ fun main() {
 }
 
 /**
+ * ## Funcion para leer precio
  * @author Ivan Torres & Denis Coello
- * @param scan
- * @return precio
+ * @param scan llamamos al escaner
+ * @return precio introducido
  */
 fun leerPrecio(scan: Scanner): Int {
     println("Introduzca el precio:")
@@ -28,8 +38,9 @@ fun leerPrecio(scan: Scanner): Int {
 }
 
 /**
+ * ## Funcion para obtener la fecha
  * @author Ivan Torres & Dennis Coello
- * @param scan
+ * @param scan llamamos al escaner
  * @return lista amb la data separada en dia, mes i any
  */
 fun obtenerFecha(scan: Scanner): List<String> {
@@ -38,8 +49,9 @@ fun obtenerFecha(scan: Scanner): List<String> {
     return resultat
 }
 /**
+ * ## Funcion para leer eñl tipo de IVA
  * @author Ivan Torres & Dennis Coello
- * @param scan
+ * @param scan llamamos al escaner
  * @return numero en que s'indica la posició en que es troba el iva corresponent a la llista
  */
 fun llegirTipusIVA(scan: Scanner): Int {
@@ -53,8 +65,9 @@ fun llegirTipusIVA(scan: Scanner): Int {
     return resultat
 }
 /**
+ * ## Funcion para iniciar la lista de IVA
  * @author Ivan Torres & Dennis Coello
- * @param scan
+ * @param scan llamamos al escaner
  * @return retorna una llista en que es troban el percentatge de cada tipus d'IVA
  */
 fun llistaIva(scan: Scanner): MutableList<MutableList<Double>> {
@@ -70,6 +83,7 @@ fun llistaIva(scan: Scanner): MutableList<MutableList<Double>> {
     return resultat
 }
 /**
+ * ## Funcion para comprobar el IVA vigente
  * @author Ivan Torres & Dennis Coello
  * @param fecha data introduida
  * @return numero que representa la psoició del any correponents a la llista
@@ -91,11 +105,12 @@ fun comprobarIva(fecha : List<String>): Int {
     return resultat
 }
 /**
+ *## Funcion para calcular el precio con IVA
  * @author Ivan Torres & Dennis Coello
- * @param preu
- * @param anyo
- * @param tipusIva
- * @param lista
+ * @param preu precio introducido anteriormente
+ * @param anyo año introducido anteriormente
+ * @param tipusIva tipo de iva seleccionado anteriormente
+ * @param lista lista generada anteriormente con los valores del iva de cad aaño y de cada tipo
  * @return preu multiplicat per l'IVA corresponent per a l'any indicat
  */
 fun calcularIva(preu: Int, anyo:Int,tipusIva:Int, lista:MutableList<MutableList<Double>>) : Int{
